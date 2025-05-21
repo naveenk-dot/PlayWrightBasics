@@ -13,10 +13,13 @@ const config=({
   {
     timeout: 5000,
   },
-  reporter:'html',
+  reporter: [['line'], ['allure-playwright', { resultsDir: 'allure-results' }]],
+  //reporter:'html',
   
     use: {
+
     browserName: 'chromium',
+    baseURL:"https://rahulshettyacademy.com/loginpagePractise/",
     headless: false,
     screenshot: 'on',
     trace: 'retain-on-failure',
@@ -25,7 +28,7 @@ const config=({
     permissions:['geolocation'],
   },
 
-  
+
 });
 module.exports= config
 
