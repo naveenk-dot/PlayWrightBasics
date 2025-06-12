@@ -14,3 +14,12 @@ test('visualTestingtest', async({page})=>
     const image = await page.screenshot({path: 'screenshot.png'});
     expect(image).toMatchSnapshot('screenshot.png');
 })
+
+test('alert', async ({ page }) => {
+    page.on('dialog', async dialog => {
+        console.log(`Alert message: ${dialog.message()}`);
+        await dialog.accept(); // Clicks "OK"
+    }); // Closing bracket was missing here
+
+    await page.click('#alertButton'); // Trigger the alert
+});

@@ -15,9 +15,10 @@ const config=({
   },
   reporter: [['line'], ['allure-playwright', { resultsDir: 'allure-results' }]],
   //reporter:'html',
-  
+  projects:[
+    {
+    name:'chromium',
     use: {
-
     browserName: 'chromium',
     baseURL:"https://rahulshettyacademy.com/loginpagePractise/",
     headless: false,
@@ -26,7 +27,22 @@ const config=({
     video: 'on-first-retry',
     ignoreHttpsErrors:true,
     permissions:['geolocation'],
-  },
+  }
+},
+{
+      name: 'firefox',
+      use: {
+        browserName: 'firefox',
+        baseURL: "https://rahulshettyacademy.com/loginpagePractise/",
+        headless: false,
+        screenshot: 'on',
+        trace: 'retain-on-failure',
+        video: 'on-first-retry',
+        ignoreHttpsErrors: true,
+        permissions: ['geolocation'],
+      }
+    }
+]
 
 
 });
